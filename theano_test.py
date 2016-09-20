@@ -117,7 +117,6 @@ X, y = make_regression(n_samples = N, n_features=100, n_informative=80, n_target
 
 X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=.2)
 
-
 training_steps = 10000
 
 x = T.dmatrix('x')
@@ -130,9 +129,6 @@ b = theano.shared(0., name='b')
 print "Initial model:"
 print w.get_value()
 print b.get_value()
-
-
-#beta = T.nlinalg.dot(T.nlinalg.matrix_inverse(T.nlinalg.matrix_dot(T.transpose(x), x)), T.nlinalg.dot(T.transpose(x), y))
 
 rss = (y - T.dot(x, w)-b)**2
 prediction = T.dot(x, w) + b
